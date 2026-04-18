@@ -1,35 +1,15 @@
-# AI Job Application Copilot
+# JobAgent 🤖💼
 
-An AI-powered job matching platform built with the MERN stack and Google Gemini API.
+An intelligent, AI-powered recruitment platform designed to seamlessly connect applicants with their ideal roles by extracting meaning from skills and experience. It serves dual portals for both Job Seekers and Administrative hiring teams.
 
-## Project Structure
-- `backend/`: Express.js backend connecting to MongoDB Atlas & Gemini AI
-- `frontend/`: React + Vite frontend using Tailwind CSS and Firebase Auth
+### Features 🌟
+- **Generative AI Resume Parsing:** Simply upload a PDF, and the Gemini AI instantly extracts your skills, experience, and preferred roles.
+- **Smart Job Matching:** The system dynamically re-orders and suggests opportunities based on your exact saved skill stack.
+- **Dual-Portal Access:** Integrated Firebase login providing distinct, secure experiences for Applicants and Company Admins.
+- **Dynamic Applicant Profiles:** Clean, interactive UI for tracking AI match scores, experience, and analytics.
 
-## Initial Setup
-
-1. **Install Dependencies**
-   From the root folder, run:
-   ```bash
-   npm run install-all
-   ```
-
-2. **Environment Variables**
-   - Copy `.env.example` to `.env` in the root (if sharing vars) or individually inside `backend/.env` and `frontend/.env`.
-   - Update with your MongoDB URI, Gemini API Key, and Firebase configurations.
-
-3. **Database Setup**
-   - The backend checks if the Job database is empty and automatically runs `backend/seed.js` on the first startup.
-   - Or you can manually seed: `cd backend && npm run seed`
-
-4. **Running the Application**
-   From the root directory:
-   ```bash
-   npm run dev
-   ```
-   This uses `concurrently` to spin up both the Vite dev server and Express backend.
-
-## Execution Phases
-- **Phase 1**: Foundation + Backend Core (Database schemas, REST routes)
-- **Phase 2**: AI Services (Gemini matching, automated cover letters)
-- **Phase 3**: Frontend UI and Application Integration
+### Future Updates & Improvements 🚀
+- **Automated Cover Letters:** AI-generated tailored cover letters for specific job postings.
+- **Application Tracking Pipeline:** A kanban board system for applicants to visualize their ongoing application statuses.
+- **Admin Analytics Dashboard:** Deeper graphical reporting for companies to view interaction rates on their posted roles.
+- **Enhanced ATS Integration:** Webhook capabilities to send applicant data directly to external Applicant Tracking Systems.
