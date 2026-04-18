@@ -1,0 +1,12 @@
+{
+  "name": "ai-job-copilot",
+  "version": "1.0.0",
+  "description": "AI-powered job matching platform",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix backend\" \"npm run dev --prefix frontend\"",
+    "install-all": "npm install && cd backend && npm install && cd ../frontend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
