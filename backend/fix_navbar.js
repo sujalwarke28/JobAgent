@@ -1,5 +1,5 @@
 const fs = require('fs');
-const filePath = '/Users/sujalwarke/Desktop/PersonalOPS/ai-job-copilot/frontend/src/components/Navbar.jsx';
+const filePath = '/Users/sujalwarke/Desktop/PersonalOPS/Jobice/frontend/src/components/Navbar.jsx';
 let content = fs.readFileSync(filePath, 'utf8');
 
 const profileLinkStr = `              <Link to="/applications" className="text-gray-300 hover:text-white transition-colors">My Applications</Link>

@@ -139,7 +139,7 @@ export default function AdminDashboard() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[70vh] text-gray-400">
+      <div className="flex flex-col items-center justify-center min-h-[70vh] text-slate-500">
         <Loader2 className="w-12 h-12 animate-spin text-purple-500 mb-4" />
         <p className="text-lg font-medium">Loading Employer Command Center...</p>
       </div>
@@ -160,25 +160,25 @@ export default function AdminDashboard() {
     <>
       
       {/* Dashboard Header / Context Section */}
-      <div className="relative bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-2xl overflow-hidden">
+      <div className="relative bg-white border border-slate-200 rounded-3xl p-8 shadow-2xl overflow-hidden">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-purple-600/10 rounded-full blur-[80px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-10 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] pointer-events-none"></div>
         
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
           <div className="flex items-center gap-6">
             <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-500 to-blue-600 p-1 shadow-lg">
-              <div className="w-full h-full bg-gray-900 rounded-xl flex items-center justify-center">
-                <Building2 className="w-10 h-10 text-white" />
+              <div className="w-full h-full bg-white rounded-xl flex items-center justify-center">
+                <Building2 className="w-10 h-10 text-slate-900" />
               </div>
             </div>
             <div>
               <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-xs font-bold tracking-wider mb-2">
                 EMPLOYER COMMAND CENTER
               </div>
-              <h1 className="text-3xl md:text-4xl font-black text-white mb-2 tracking-tight">
+              <h1 className="text-3xl md:text-4xl font-black text-slate-900 mb-2 tracking-tight">
                 {user.companyName || 'Company Portal'}
               </h1>
-              <p className="text-gray-400 font-medium max-w-xl">
+              <p className="text-slate-500 font-medium max-w-xl">
                 Manage your active job postings, analyze traction metrics, and review top candidates intelligently filtered by our AI pipeline.
               </p>
             </div>
@@ -187,39 +187,39 @@ export default function AdminDashboard() {
           <div className="flex gap-3 w-full md:w-auto flex-col sm:flex-row">
             <button 
               onClick={() => setIsProfileModalOpen(true)}
-              className="flex-1 sm:flex-none px-5 py-3 bg-gray-800 hover:bg-gray-700 border border-gray-700 hover:border-gray-500 rounded-xl flex justify-center items-center gap-2 text-sm font-bold transition-all text-white shadow-lg"
+              className="flex-1 sm:flex-none px-5 py-3 bg-slate-100 hover:bg-slate-200 border border-slate-300 hover:border-gray-500 rounded-xl flex justify-center items-center gap-2 text-sm font-bold transition-all text-slate-900 shadow-lg"
             >
               <Settings className="w-4 h-4"/> Settings
             </button>
             <button 
               onClick={() => setIsCreateModalOpen(true)}
-              className="flex-1 sm:flex-none px-5 py-3 bg-purple-600 border-purple-500 hover:bg-purple-500 rounded-xl flex justify-center items-center gap-2 text-sm font-bold transition-all text-white shadow-lg shadow-purple-500/20"
+              className="flex-1 sm:flex-none px-5 py-3 bg-purple-600 border-purple-500 hover:bg-purple-500 rounded-xl flex justify-center items-center gap-2 text-sm font-bold transition-all text-slate-900 shadow-lg shadow-purple-500/20"
             >
               <Plus className="w-4 h-4" /> Post New Job
             </button>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-gray-800/80 relative z-10">
+        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mt-8 pt-8 border-t border-slate-200/80 relative z-10">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-purple-500/10 rounded-xl text-purple-400"><Briefcase className="w-6 h-6" /></div>
             <div>
-              <p className="text-2xl font-black text-white">{jobs.length}</p>
-              <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Active Roles</p>
+              <p className="text-2xl font-black text-slate-900">{jobs.length}</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Active Roles</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
             <div className="p-3 bg-blue-500/10 rounded-xl text-blue-400"><Eye className="w-6 h-6" /></div>
             <div>
-              <p className="text-2xl font-black text-white">{jobs.reduce((acc, j) => acc + getMockMetrics(j).views, 0)}</p>
-              <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Total Pipeline Views</p>
+              <p className="text-2xl font-black text-slate-900">{jobs.reduce((acc, j) => acc + getMockMetrics(j).views, 0)}</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Total Pipeline Views</p>
             </div>
           </div>
           <div className="flex items-center gap-4">
             <div className="p-3 bg-emerald-500/10 rounded-xl text-emerald-400"><MousePointerClick className="w-6 h-6" /></div>
             <div>
-              <p className="text-2xl font-black text-white">{jobs.reduce((acc, j) => acc + getMockMetrics(j).interactions, 0)}</p>
-              <p className="text-xs font-bold text-gray-500 uppercase tracking-widest">Interactions</p>
+              <p className="text-2xl font-black text-slate-900">{jobs.reduce((acc, j) => acc + getMockMetrics(j).interactions, 0)}</p>
+              <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">Interactions</p>
             </div>
           </div>
         </div>
@@ -227,18 +227,18 @@ export default function AdminDashboard() {
 
       {/* Main Jobs Feed */}
       <div>
-        <h2 className="text-2xl font-bold flex items-center gap-3 text-white mb-6">
+        <h2 className="text-2xl font-bold flex items-center gap-3 text-slate-900 mb-6">
           <Presentation className="w-6 h-6 text-purple-400" /> Job Postings & Metrics
         </h2>
 
         {jobs.length === 0 ? (
-          <div className="bg-gray-900 border border-gray-800 rounded-3xl p-16 text-center shadow-xl">
-            <div className="w-20 h-20 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-6">
+          <div className="bg-white border border-slate-200 rounded-3xl p-16 text-center shadow-xl">
+            <div className="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <Briefcase className="w-10 h-10 text-gray-600" />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">No Active Postings</h3>
-            <p className="text-gray-400 max-w-md mx-auto mb-6">You currently have no automated AI job streams running. Create a posting to start attracting matching candidates.</p>
-            <button onClick={() => setIsCreateModalOpen(true)} className="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-white font-bold rounded-xl shadow-lg transition-colors">
+            <h3 className="text-xl font-bold text-slate-900 mb-2">No Active Postings</h3>
+            <p className="text-slate-500 max-w-md mx-auto mb-6">You currently have no automated AI job streams running. Create a posting to start attracting matching candidates.</p>
+            <button onClick={() => setIsCreateModalOpen(true)} className="px-6 py-3 bg-purple-600 hover:bg-purple-500 text-slate-900 font-bold rounded-xl shadow-lg transition-colors">
               Create Your First Posting
             </button>
           </div>
@@ -251,7 +251,7 @@ export default function AdminDashboard() {
                 const isExpanded = selectedJob?._id === job._id;
                 
                 return (
-                  <div key={job._id} className={`bg-gray-900 border transition-all duration-300 rounded-2xl overflow-hidden shadow-lg ${isExpanded ? 'border-purple-500 shadow-purple-500/10' : 'border-gray-800 hover:border-gray-600'}`}>
+                  <div key={job._id} className={`bg-white border transition-all duration-300 rounded-2xl overflow-hidden shadow-lg ${isExpanded ? 'border-purple-500 shadow-purple-500/10' : 'border-slate-200 hover:border-gray-600'}`}>
                     
                     {/* Job Overview Card */}
                     <div className="p-5 flex flex-col justify-between gap-4 relative">
@@ -259,17 +259,17 @@ export default function AdminDashboard() {
                         <div className="flex items-center justify-between mb-2">
                           <div className="flex items-center gap-2">
                              <span className={`w-2 h-2 rounded-full ${job.status === 'closed' ? 'bg-red-500' : 'bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]'}`}></span>
-                             <h3 className="text-lg font-bold text-white tracking-tight truncate max-w-[200px]">{job.title}</h3>
+                             <h3 className="text-lg font-bold text-slate-900 tracking-tight truncate max-w-[200px]">{job.title}</h3>
                           </div>
                            {!selectedJob && (
-                             <span className="text-xs font-semibold px-2 py-1 bg-gray-800 text-gray-300 rounded-md">
+                             <span className="text-xs font-semibold px-2 py-1 bg-slate-100 text-slate-600 rounded-md">
                                {job.location}
                              </span>
                            )}
                         </div>
                         
                         {!selectedJob && (
-                          <p className="text-sm text-gray-400 font-medium mb-4 flex items-center gap-2">
+                          <p className="text-sm text-slate-500 font-medium mb-4 flex items-center gap-2">
                             <span className="text-purple-400 font-bold">{job.salary}</span>
                           </p>
                         )}
@@ -279,7 +279,7 @@ export default function AdminDashboard() {
                         <button
                           onClick={() => handleToggleApplicants(job)}
                           className={`flex-1 py-2 px-3 rounded-lg font-bold transition-all text-xs flex items-center justify-center gap-2 ${
-                            isExpanded ? 'bg-gray-800 text-white border border-gray-700' : 'bg-purple-600/10 text-purple-400 border border-purple-500/20 hover:bg-purple-600 hover:text-white'
+                            isExpanded ? 'bg-slate-100 text-slate-900 border border-slate-300' : 'bg-purple-600/10 text-purple-400 border border-purple-500/20 hover:bg-purple-600 hover:text-slate-900'
                           }`}
                         >
                           <Users className="w-4 h-4" /> 
@@ -289,7 +289,7 @@ export default function AdminDashboard() {
                           <>
                             <button
                               onClick={() => setSelectedJobToEdit(job)}
-                              className="py-2 px-3 rounded-lg font-bold transition-all text-xs bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700"
+                              className="py-2 px-3 rounded-lg font-bold transition-all text-xs bg-slate-100 hover:bg-slate-200 text-slate-600 border border-slate-300"
                             >
                               <Pencil className="w-4 h-4" />
                             </button>
@@ -310,23 +310,23 @@ export default function AdminDashboard() {
 
             {/* Right Pane - Detail View */}
             {selectedJob && (
-              <div className="flex-grow bg-gray-900 border border-gray-800 rounded-3xl overflow-hidden shadow-xl flex flex-col min-h-[600px] animate-in slide-in-from-right-8 duration-500">
+              <div className="flex-grow bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-xl flex flex-col min-h-[600px] animate-in slide-in-from-right-8 duration-500">
                 
                 {/* Header of Detail View */}
-                <div className="p-6 border-b border-gray-800 bg-gray-950/50 flex items-center justify-between">
+                <div className="p-6 border-b border-slate-200 bg-slate-50/50 flex items-center justify-between">
                    <div>
-                     <h3 className="text-xl font-black text-white flex items-center gap-2">
-                       <span className="bg-purple-600 text-white px-2 py-0.5 rounded text-sm uppercase tracking-wider">Pipeline</span>
+                     <h3 className="text-xl font-black text-slate-900 flex items-center gap-2">
+                       <span className="bg-purple-600 text-slate-900 px-2 py-0.5 rounded text-sm uppercase tracking-wider">Pipeline</span>
                        {selectedJob.title}
                      </h3>
-                     <p className="text-sm text-gray-400 mt-1 flex items-center gap-2">
+                     <p className="text-sm text-slate-500 mt-1 flex items-center gap-2">
                         <Users className="w-4 h-4" /> {candidates.length} candidates in review
                      </p>
                    </div>
-                   <div className="flex items-center gap-2 bg-gray-800 p-1 rounded-lg">
+                   <div className="flex items-center gap-2 bg-slate-100 p-1 rounded-lg">
                       <button 
                         onClick={() => setSelectedCandidate(null)}
-                        className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${!selectedCandidate ? 'bg-gray-700 text-white shadow' : 'text-gray-400 hover:text-gray-200'}`}
+                        className={`px-4 py-1.5 rounded-md text-sm font-bold transition-all ${!selectedCandidate ? 'bg-slate-200 text-slate-900 shadow' : 'text-slate-500 hover:text-slate-700'}`}
                       >
                         List
                       </button>
@@ -336,36 +336,36 @@ export default function AdminDashboard() {
                 <div className="flex-grow flex overflow-hidden">
                   
                   {/* Candidates List Column */}
-                  <div className={`${selectedCandidate ? 'hidden lg:block w-[300px] border-r border-gray-800' : 'w-full'} overflow-y-auto custom-scrollbar`}>
+                  <div className={`${selectedCandidate ? 'hidden lg:block w-[300px] border-r border-slate-200' : 'w-full'} overflow-y-auto custom-scrollbar`}>
                      {loadingCandidates ? (
-                       <div className="py-20 text-center"><Loader2 className="w-8 h-8 animate-spin mx-auto text-purple-500 mb-2" /><p className="text-sm text-gray-500">Loading pipeline...</p></div>
+                       <div className="py-20 text-center"><Loader2 className="w-8 h-8 animate-spin mx-auto text-purple-500 mb-2" /><p className="text-sm text-slate-400">Loading pipeline...</p></div>
                      ) : candidates.length === 0 ? (
-                       <div className="p-10 text-center text-gray-500">No applications match this role yet.</div>
+                       <div className="p-10 text-center text-slate-400">No applications match this role yet.</div>
                      ) : (
                        <div className="p-4 space-y-2">
                          {candidates.map(candidate => (
                            <div 
                               key={candidate._id} 
                               onClick={() => setSelectedCandidate(candidate)}
-                              className={`p-4 rounded-xl border cursor-pointer transition-all ${selectedCandidate?._id === candidate._id ? 'bg-gray-800 border-purple-500/50' : 'bg-gray-950/30 border-gray-800 hover:border-gray-700 hover:bg-gray-900'}`}
+                              className={`p-4 rounded-xl border cursor-pointer transition-all ${selectedCandidate?._id === candidate._id ? 'bg-slate-100 border-purple-500/50' : 'bg-slate-50/30 border-slate-200 hover:border-slate-300 hover:bg-white'}`}
                            >
                               <div className="flex justify-between items-start mb-2">
-                                <div className="font-bold text-white text-sm">
+                                <div className="font-bold text-slate-900 text-sm">
                                   {candidate.applicantId?.displayName || candidate.applicantId?.email || 'Unknown'}
                                 </div>
                                 <span className={`text-[10px] uppercase font-bold px-2 py-0.5 rounded border ${
                                   candidate.status === 'accepted' ? 'bg-green-500/10 text-green-400 border-green-500/20' :
                                   candidate.status === 'rejected' ? 'bg-red-500/10 text-red-400 border-red-500/20' :
                                   candidate.status === 'interviewing' ? 'bg-blue-500/10 text-blue-400 border-blue-500/20' :
-                                  'bg-gray-800 text-gray-400 border-gray-700'
+                                  'bg-slate-100 text-slate-500 border-slate-300'
                                 }`}>
                                   {candidate.status}
                                 </span>
                               </div>
-                              <div className="text-xs text-gray-400 mb-2 truncate">{candidate.applicantId?.email}</div>
+                              <div className="text-xs text-slate-500 mb-2 truncate">{candidate.applicantId?.email}</div>
                               <div className="flex items-center gap-1.5">
-                                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-wider">AI Score</span>
-                                 <div className="w-full bg-gray-800 rounded-full h-1.5">
+                                 <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">AI Score</span>
+                                 <div className="w-full bg-slate-100 rounded-full h-1.5">
                                     <div className="bg-purple-500 h-1.5 rounded-full" style={{ width: `${candidate.aiScore || Math.floor(Math.random() * 40 + 60)}%` }}></div>
                                  </div>
                               </div>
@@ -377,20 +377,20 @@ export default function AdminDashboard() {
 
                   {/* Candidate Detail View */}
                   {selectedCandidate && (
-                    <div className="flex-grow overflow-y-auto custom-scrollbar bg-gray-950/50 animate-in fade-in duration-300">
+                    <div className="flex-grow overflow-y-auto custom-scrollbar bg-slate-50/50 animate-in fade-in duration-300">
                        <div className="p-8 max-w-3xl mx-auto space-y-8">
                           
                           {/* Profile Header */}
                           <div className="flex flex-col md:flex-row gap-6 items-start justify-between">
                             <div className="flex items-center gap-4">
                               <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 p-0.5">
-                                 <div className="w-full h-full bg-gray-900 rounded-xl flex items-center justify-center text-xl font-black text-white">
+                                 <div className="w-full h-full bg-white rounded-xl flex items-center justify-center text-xl font-black text-slate-900">
                                    {(selectedCandidate.applicantId?.displayName || 'U')[0]}
                                  </div>
                               </div>
                               <div>
-                                <h4 className="text-2xl font-black text-white">{selectedCandidate.applicantId?.displayName}</h4>
-                                <p className="text-gray-400">{selectedCandidate.applicantId?.email}</p>
+                                <h4 className="text-2xl font-black text-slate-900">{selectedCandidate.applicantId?.displayName}</h4>
+                                <p className="text-slate-500">{selectedCandidate.applicantId?.email}</p>
                               </div>
                             </div>
                             
@@ -423,10 +423,10 @@ export default function AdminDashboard() {
                                       : (
                                         <div>
                                           <div className="flex items-center justify-between mb-4 border-b border-purple-500/30 pb-3">
-                                            <span className="font-bold text-white">Match Score</span>
+                                            <span className="font-bold text-slate-900">Match Score</span>
                                             <span className="text-2xl font-black text-purple-400">{selectedCandidate.aiEvaluation.score}/100</span>
                                           </div>
-                                          <p className="text-gray-300 mb-4 leading-relaxed">{selectedCandidate.aiEvaluation.reasoning}</p>
+                                          <p className="text-slate-600 mb-4 leading-relaxed">{selectedCandidate.aiEvaluation.reasoning}</p>
                                           
                                           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                             {selectedCandidate.aiEvaluation.pros?.length > 0 && (
@@ -449,30 +449,30 @@ export default function AdminDashboard() {
                                         </div>
                                       )
                                  ) : (
-                                    <p className="text-gray-400 italic">"Strong candidate profile based on technical skill alignment. Exhibits key indicators for success in this role based on past trajectory."</p>
+                                    <p className="text-slate-500 italic">"Strong candidate profile based on technical skill alignment. Exhibits key indicators for success in this role based on past trajectory."</p>
                                  )}
                                </div>
                              </div>
                           </div>
 
                            {/* Cover Letter */}
-                          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6">
-                            <h5 className="text-xs font-black text-gray-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                          <div className="bg-white border border-slate-200 rounded-2xl p-6">
+                            <h5 className="text-xs font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
                               Candidate Cover Letter
                             </h5>
-                              <div className="text-gray-300 text-sm whitespace-pre-wrap leading-relaxed border-l-2 border-gray-700 pl-4 py-2 max-h-32 overflow-y-auto custom-scrollbar">
+                              <div className="text-slate-600 text-sm whitespace-pre-wrap leading-relaxed border-l-2 border-slate-300 pl-4 py-2 max-h-32 overflow-y-auto custom-scrollbar">
                                 {selectedCandidate.coverLetter ? selectedCandidate.coverLetter : 'No custom cover letter provided.'}
                               </div>
                             </div>
 
                             {/* Resume Actions */}
-                          <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+                          <div className="bg-white border border-slate-200 rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
                              <div>
-                                <h5 className="font-bold text-white mb-1">Resume Document</h5>
-                                <p className="text-xs text-gray-500">Access the original uploaded PDF.</p>
+                                <h5 className="font-bold text-slate-900 mb-1">Resume Document</h5>
+                                <p className="text-xs text-slate-400">Access the original uploaded PDF.</p>
                              </div>
                              <div className="flex items-center gap-3 w-full sm:w-auto">
-                                <button onClick={() => downloadResume(selectedCandidate._id, selectedCandidate.applicantId?.displayName)} className="flex-1 sm:flex-none px-4 py-2.5 bg-gray-800 hover:bg-gray-700 text-white rounded-lg text-sm font-bold border border-gray-700">
+                                <button onClick={() => downloadResume(selectedCandidate._id, selectedCandidate.applicantId?.displayName)} className="flex-1 sm:flex-none px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-900 rounded-lg text-sm font-bold border border-slate-300">
                                    Download PDF
                                 </button>
                              </div>

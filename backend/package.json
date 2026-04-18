@@ -1,5 +1,5 @@
 {
-  "name": "ai-job-copilot-backend",
+  "name": "Jobice-backend",
   "version": "1.0.0",
   "description": "Backend for AI Job Copilot",
   "main": "server.js",

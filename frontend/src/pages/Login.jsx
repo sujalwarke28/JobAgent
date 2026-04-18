@@ -30,18 +30,18 @@ export default function Login() {
 
   return (
     <div className="min-h-[80vh] flex items-center justify-center">
-      <div className="max-w-md w-full bg-gray-800 border border-gray-700 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
+      <div className="max-w-md w-full bg-slate-100 border border-slate-300 rounded-2xl p-8 shadow-2xl relative overflow-hidden">
         {/* Glow effect */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -mt-10 blur-3xl opacity-30 pointer-events-none">
           <div className="w-48 h-48 bg-blue-500 rounded-full"></div>
         </div>
 
         <div className="text-center relative z-10 mb-10">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-gray-900 border border-gray-700 shadow-lg text-blue-500 mb-6">
+          <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-white border border-slate-300 shadow-lg text-blue-500 mb-6">
             <Briefcase className="w-8 h-8" />
           </div>
-          <h1 className="text-3xl font-bold text-white mb-2">Welcome Back</h1>
-          <p className="text-gray-400">Sign in to your AI Job Application Copilot</p>
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">Welcome Back</h1>
+          <p className="text-slate-500">Sign in to your Jobice</p>
         </div>
 
         <div className="space-y-4 relative z-10">
@@ -62,15 +62,15 @@ export default function Login() {
           </button>
           
           <div className="relative flex items-center py-2">
-            <div className="flex-grow border-t border-gray-700"></div>
-            <span className="flex-shrink-0 mx-4 text-gray-500 text-sm">Or</span>
-            <div className="flex-grow border-t border-gray-700"></div>
+            <div className="flex-grow border-t border-slate-300"></div>
+            <span className="flex-shrink-0 mx-4 text-slate-400 text-sm">Or</span>
+            <div className="flex-grow border-t border-slate-300"></div>
           </div>
 
           <button
             onClick={() => handleLogin(true)}
             disabled={isLoading}
-            className="w-full flex items-center justify-center gap-3 bg-gray-900 border border-gray-700 hover:border-gray-500 text-white py-3 rounded-xl font-medium transition-colors"
+            className="w-full flex items-center justify-center gap-3 bg-white border border-slate-300 hover:border-gray-500 text-slate-900 py-3 rounded-xl font-medium transition-colors"
           >
             Sign in as Admin (Mock Dev)
           </button>

@@ -41,16 +41,16 @@ export default function ResumeUpload({ onUploadSuccess }) {
   };
 
   return (
-    <div className="bg-gray-900 border border-gray-800 rounded-2xl p-6 shadow-lg">
-      <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+    <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-lg">
+      <h3 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2">
         <FileText className="text-blue-400" /> Resume AI Processing
       </h3>
-      <p className="text-sm text-gray-400 mb-6">
+      <p className="text-sm text-slate-500 mb-6">
         Upload your PDF resume. Our Gemini AI will parse your experience, skills, and roles automatically to build your profile.
       </p>
 
       <div className="flex items-center gap-4">
-        <label className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-gray-700 bg-gray-800/50 rounded-xl cursor-pointer hover:border-blue-500 hover:bg-gray-800 transition-all">
+        <label className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-slate-300 bg-slate-100/50 rounded-xl cursor-pointer hover:border-blue-500 hover:bg-slate-100 transition-all">
           <input 
             type="file" 
             accept="application/pdf"
@@ -60,7 +60,7 @@ export default function ResumeUpload({ onUploadSuccess }) {
           {file ? (
             <span className="text-sm text-blue-400 font-medium truncate px-4">{file.name}</span>
           ) : (
-            <span className="text-sm text-gray-400 flex items-center gap-2">
+            <span className="text-sm text-slate-500 flex items-center gap-2">
               <Upload className="w-4 h-4" /> Click to select PDF
             </span>
           )}
@@ -71,10 +71,10 @@ export default function ResumeUpload({ onUploadSuccess }) {
           disabled={!file || uploading || success}
           className={`px-6 py-4 rounded-xl font-bold transition-all shadow-lg flex items-center gap-2 ${
             success 
-              ? 'bg-green-600 text-white' 
+              ? 'bg-green-600 text-slate-900' 
               : !file 
-                ? 'bg-gray-800 text-gray-500 cursor-not-allowed' 
-                : 'bg-blue-600 hover:bg-blue-500 text-white'
+                ? 'bg-slate-100 text-slate-400 cursor-not-allowed' 
+                : 'bg-blue-600 hover:scale-105 hover:bg-blue-600 transition-all duration-300 text-slate-900'
           }`}
         >
           {uploading ? (

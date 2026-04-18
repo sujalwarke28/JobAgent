@@ -1,4 +1,4 @@
-# JobAgent: AI-Powered Recruitment Platform
+# Jobice: AI-Powered Recruitment Platform
 
 ## 🚨 Problem Statement
 Modern recruitment is fundamentally broken and highly inefficient. Applicant Tracking Systems (ATS) rely on rigid, rule-based keyword matching that frequently rejects highly qualified candidates over minor formatting issues. 
@@ -8,8 +8,8 @@ Modern recruitment is fundamentally broken and highly inefficient. Applicant Tra
 ## 💡 The Solution
 A shift from rigid keyword-matching to **semantic AI analysis**. By leveraging large language models (LLMs) to read resumes exactly like a human recruiter would, we can understand the *context* and *depth* of a candidate's experience, mapping those true skills directly to what a job actually requires.
 
-## 🛠️ The Solution We Are Providing (JobAgent)
-JobAgent is an end-to-end, dual-portal platform that automates the matchmaking process between companies and candidates using Generative AI.
+## 🛠️ The Solution We Are Providing (Jobice)
+Jobice is an end-to-end, dual-portal platform that automates the matchmaking process between companies and candidates using Generative AI.
 * **Intelligent Applicant Portal:** Candidates simply upload a PDF of their resume. Our Gemini AI engine instantly extracts their core skills, experience level, and preferred roles, constructing a rich dynamic profile.
 * **Smart Job Matching:** Instead of a generic feed, candidates see a personalized "Radar" where jobs are dynamically ranked and recommended based on their exact AI-extracted skill stack.
 * **Company Admin Portal:** Employers bypass the noise. They can create tailored job listings and review applicants that have been automatically pre-sorted by an AI Match Score, drastically cutting down screening time.

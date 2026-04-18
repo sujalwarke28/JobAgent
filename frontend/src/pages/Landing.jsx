@@ -1,307 +1,193 @@
-import { useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
-import { Sparkles, BrainCircuit, Rocket, Target, Users, ArrowRight, CheckCircle2, ShieldCheck, Zap } from 'lucide-react';
+import { Sparkles, BrainCircuit, Rocket, Target, Users, ArrowRight, FileText, CheckCircle2, Search } from 'lucide-react';
 
 export default function Landing() {
-  const { scrollYProgress } = useScroll();
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
-
-  const heroY = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
-  const heroOpacity = useTransform(smoothProgress, [0, 0.2], [1, 0]);
-
   return (
-    <div className="min-h-screen bg-gray-950 text-white overflow-hidden selection:bg-blue-500/30">
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-blue-500/20 font-sans overflow-x-hidden">
       
-      {/* ─── NATIVE SCROLL PROGRESS BAR ─── */}
-      <motion.div 
-        className="fixed top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 origin-left z-50"
-        style={{ scaleX: smoothProgress }}
-      />
-
-      {/* ─── DECORATIVE BACKGROUND ─── */}
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px]" />
-        <div className="absolute top-[20%] right-[-10%] w-[50%] h-[50%] rounded-full bg-purple-600/10 blur-[150px]" />
-        <div className="absolute bottom-[-20%] left-[20%] w-[60%] h-[60%] rounded-full bg-blue-900/10 blur-[150px]" />
-      </div>
+      {/* ─── NATIVE HERO BACKGROUND ─── */}
+      <div className="absolute top-0 inset-x-0 h-[80vh] bg-gradient-to-b from-blue-50/50 to-transparent pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-blue-400/10 rounded-full blur-[120px] pointer-events-none -z-10 mix-blend-multiply" />
+      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-purple-400/10 rounded-full blur-[100px] pointer-events-none -z-10 mix-blend-multiply" />
 
       {/* ─── HERO SECTION ─── */}
-      <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-20 pb-32 px-4 z-10">
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-28 px-6 max-w-7xl mx-auto flex flex-col items-center text-center">
+        
         <motion.div 
-          style={{ y: heroY, opacity: heroOpacity }}
-          className="text-center max-w-4xl mx-auto flex flex-col items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100/50 border border-blue-200/50 text-blue-700 text-sm font-semibold mb-8 backdrop-blur-sm"
         >
-          <motion.div 
-            initial={{ scale: 0.8, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.8, type: "spring", bounce: 0.4 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-800/50 border border-gray-700/50 backdrop-blur-md mb-8 shadow-xl"
-          >
-            <Sparkles className="w-4 h-4 text-blue-400" />
-            <span className="text-sm font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Welcome to the Future of Hiring
-            </span>
-          </motion.div>
-
-          <motion.h1 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black tracking-tight mb-6 leading-tight"
-          >
-            Find The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-500 to-blue-500">Perfect Match</span> <br /> 
-            Without The Guesswork.
-          </motion.h1>
-
-          <motion.p 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-400 max-w-2xl mb-10 leading-relaxed font-medium"
-          >
-            JobCopilot leverages cutting-edge generative AI to bridge the gap between brilliant candidates and visionary companies by focusing purely on what matters: <strong className="text-gray-200">skills.</strong>
-          </motion.p>
-
-          <motion.div 
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="flex flex-col sm:flex-row gap-4"
-          >
-            <Link to="/login">
-              <button className="px-8 py-4 bg-white text-gray-950 hover:bg-gray-100 rounded-2xl font-black transition-all shadow-[0_0_40px_rgba(255,255,255,0.15)] flex items-center justify-center gap-2 group text-lg w-full sm:w-auto">
-                <Rocket className="w-5 h-5" /> Get Started Now
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </Link>
-          </motion.div>
+          <Sparkles className="w-4 h-4" />
+          Powered by Google Gemini AI
         </motion.div>
 
-        {/* Dashboard Mockup Preview */}
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5, type: "spring" }}
-          className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-full max-w-5xl px-4 hidden md:block"
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+          className="max-w-4xl text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-slate-900 mb-6 drop-shadow-sm leading-[1.1]"
         >
-          <div className="rounded-t-3xl bg-gray-900/80 border-t border-l border-r border-gray-700/50 backdrop-blur-xl shadow-2xl p-4">
-            <div className="flex items-center gap-2 mb-4 px-2">
-               <div className="w-3 h-3 rounded-full bg-red-500/80"></div>
-               <div className="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-               <div className="w-3 h-3 rounded-full bg-green-500/80"></div>
-            </div>
-            <div className="grid grid-cols-3 gap-6 opacity-60 pointer-events-none">
-              {[1,2,3].map((i) => (
-                <div key={i} className="h-40 rounded-2xl bg-gray-800/50 border border-gray-700/50 p-6">
-                   <div className="w-10 h-10 rounded bg-blue-500/20 mb-4"></div>
-                   <div className="w-3/4 h-4 rounded bg-gray-700 mb-2"></div>
-                   <div className="w-1/2 h-3 rounded bg-gray-700/50"></div>
+          Stop Searching. Let AI Find Your{' '}
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+            Perfect Job Match.
+          </span>
+        </motion.h1>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+          className="max-w-2xl text-lg md:text-xl text-slate-600 mb-10 leading-relaxed font-medium"
+        >
+          Upload your resume once. Our built-in Gemini AI reads your profile, understands your skills, and instantly matches you with companies looking for exactly what you do.
+        </motion.p>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+          className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+        >
+          <Link 
+            to="/login" 
+            className="group w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-slate-900/20 flex items-center justify-center gap-2"
+          >
+             Upload Resume & Match <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+          <a 
+            href="#how-it-works"
+            className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-white border border-slate-200 text-slate-800 hover:bg-slate-50 font-bold transition-all hover:shadow-sm flex items-center justify-center"
+          >
+            See How it Works
+          </a>
+        </motion.div>
+      </section>
+
+      {/* ─── HOW IT WORKS (THE WORKFLOW) ─── */}
+      <section id="how-it-works" className="py-24 bg-white border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">How Jobice Works</h2>
+            <p className="text-slate-500 font-medium text-lg max-w-xl mx-auto">Three simple steps to connect you with the right opportunities. No manual form filling required.</p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 relative z-10">
+             
+             {/* Step 1 */}
+             <div className="group p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-blue-200 hover:bg-blue-50/50 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <FileText className="w-8 h-8" />
                 </div>
-              ))}
-            </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">1. Upload Resume</h3>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  Sign in securely and drop your PDF resume. Skip the tedious process of typing out your full work history and skills into clunky forms.
+                </p>
+                <div className="absolute top-4 right-6 text-8xl font-black text-slate-900/5 group-hover:text-blue-600/5 transition-colors -z-10 select-none">1</div>
+             </div>
+
+             {/* Step 2 */}
+             <div className="group p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-purple-200 hover:bg-purple-50/50 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <BrainCircuit className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">2. AI Skill Extraction</h3>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  Our Gemini AI reads your document instantly, automatically understanding and formatting your specific technical stack and experience level.
+                </p>
+                <div className="absolute top-4 right-6 text-8xl font-black text-slate-900/5 group-hover:text-purple-600/5 transition-colors -z-10 select-none">2</div>
+             </div>
+
+             {/* Step 3 */}
+             <div className="group p-8 rounded-3xl bg-slate-50 border border-slate-200 hover:border-emerald-200 hover:bg-emerald-50/50 transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center">
+                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-2xl flex items-center justify-center mb-6 shadow-sm group-hover:scale-110 transition-transform duration-300">
+                  <Target className="w-8 h-8" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">3. Instant Job Matches</h3>
+                <p className="text-slate-600 font-medium leading-relaxed">
+                  Your personalized dashboard algorithmically curates open job roles, ranking them based on how perfectly they match your AI-extracted profile.
+                </p>
+                <div className="absolute top-4 right-6 text-8xl font-black text-slate-900/5 group-hover:text-emerald-600/5 transition-colors -z-10 select-none">3</div>
+             </div>
+
           </div>
-        </motion.div>
+        </div>
       </section>
 
-      {/* ─── THE PROBLEM SECTION ─── */}
-      <section className="relative z-10 py-32 px-4 bg-gray-950">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeader 
-             badge="The Flawed Reality" 
-             title="The hiring process is broken." 
-             subtitle="Traditional recruiting relies on bias, endless scrolling, and vague job descriptions. Both candidates and companies suffer from a massive disconnect."
-          />
+      {/* ─── DUAL PORTAL SECTION ─── */}
+      <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="bg-slate-900 rounded-[3rem] p-8 md:p-16 lg:p-20 relative overflow-hidden shadow-2xl shadow-slate-900/30">
+           
+           {/* Background Accents */}
+           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-blue-500/20 to-purple-500/20 rounded-full blur-[100px] pointer-events-none"></div>
 
-          <div className="grid md:grid-cols-2 gap-12 mt-16">
-            <RevealCard delay={0.1}>
-              <div className="p-8 rounded-3xl bg-gray-900 border border-gray-800 h-full">
-                <Target className="w-12 h-12 text-rose-400 mb-6" />
-                <h3 className="text-2xl font-bold mb-4">For Candidates</h3>
-                <ul className="space-y-4">
-                  {[
-                    "Sending hundreds of applications into the void.",
-                    "Getting rejected before a human even reads the resume.",
-                    "Struggling to articulate how their exact skills match a role."
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-400">
-                      <XIcon /> <span>{text}</span>
+           <div className="relative z-10 flex flex-col lg:flex-row gap-16 items-center">
+              <div className="flex-1 text-center lg:text-left">
+                 <h2 className="text-3xl md:text-4xl font-black text-white mb-6 tracking-tight leading-tight">
+                    Hiring? Let AI filter the noise.
+                 </h2>
+                 <p className="text-slate-300 text-lg font-medium mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                    Jobice provides a dedicated dashboard for employers. Post a job with your required skills, and our AI automatically surfaces candidates who match your exact stack, ranked by percentage.
+                 </p>
+                 <ul className="space-y-4 mb-10 text-left max-w-md mx-auto lg:mx-0">
+                    <li className="flex items-center gap-3 text-slate-200 font-medium bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
+                       <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" /> Auto-score candidates percentage-wise.
                     </li>
-                  ))}
-                </ul>
-              </div>
-            </RevealCard>
-
-            <RevealCard delay={0.2}>
-              <div className="p-8 rounded-3xl bg-gray-900 border border-gray-800 h-full">
-                <Users className="w-12 h-12 text-rose-400 mb-6" />
-                <h3 className="text-2xl font-bold mb-4">For Companies</h3>
-                <ul className="space-y-4">
-                  {[
-                    "Drowning in completely unqualified applications.",
-                    "Spending hours manually screening candidates.",
-                    "Missing hidden gems because of poor keyword filtering."
-                  ].map((text, i) => (
-                    <li key={i} className="flex items-start gap-3 text-gray-400">
-                      <XIcon /> <span>{text}</span>
+                    <li className="flex items-center gap-3 text-slate-200 font-medium bg-slate-800/50 p-3 rounded-xl border border-slate-700/50">
+                       <CheckCircle2 className="w-6 h-6 text-emerald-400 shrink-0" /> Track engagement and views in real-time.
                     </li>
-                  ))}
-                </ul>
+                 </ul>
+                 <Link 
+                    to="/login"
+                    className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold transition-all shadow-lg shadow-blue-600/30"
+                  >
+                    Login to Post Jobs <Rocket className="w-4 h-4" />
+                 </Link>
               </div>
-            </RevealCard>
-          </div>
+
+              {/* Decorative Mockup */}
+              <div className="flex-1 w-full max-w-md mx-auto relative hidden sm:block">
+                 <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-3xl blur-2xl"></div>
+                 <div className="relative bg-slate-800 rounded-3xl border border-slate-700 shadow-2xl p-6 flex flex-col gap-4">
+                    <div className="h-6 w-1/3 bg-slate-700 rounded-md"></div>
+                    <div className="h-4 w-1/4 bg-slate-700 rounded-md mb-2"></div>
+                    
+                    <div className="flex items-center gap-4 bg-slate-900 p-4 rounded-xl border border-slate-700/50 relative overflow-hidden group">
+                       <div className="w-12 h-12 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-400 shrink-0"><Search className="w-5 h-5"/></div>
+                       <div className="flex-1">
+                          <div className="h-4 w-3/4 bg-slate-700 rounded mb-2"></div>
+                          <div className="h-3 w-1/2 bg-slate-700 rounded"></div>
+                       </div>
+                       <div className="px-3 py-1 rounded bg-emerald-500/20 text-emerald-400 text-sm font-black text-right min-w-[80px]">98%</div>
+                    </div>
+                    
+                    <div className="flex items-center gap-4 bg-slate-900 p-4 rounded-xl border border-slate-700/50 relative overflow-hidden group">
+                       <div className="w-12 h-12 bg-purple-500/20 rounded-full flex items-center justify-center text-purple-400 shrink-0"><Users className="w-5 h-5"/></div>
+                       <div className="flex-1">
+                          <div className="h-4 w-2/3 bg-slate-700 rounded mb-2"></div>
+                          <div className="h-3 w-1/3 bg-slate-700 rounded"></div>
+                       </div>
+                       <div className="px-3 py-1 rounded bg-emerald-500/20 text-emerald-400 text-sm font-black text-right min-w-[80px]">92%</div>
+                    </div>
+                 </div>
+              </div>
+           </div>
         </div>
       </section>
 
-      {/* ─── THE SOLUTION / FEATURES SECTION ─── */}
-      <section className="relative z-10 py-32 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-gray-950 pointer-events-none" />
-        
-        <div className="max-w-6xl mx-auto relative z-10">
-          <SectionHeader 
-             badge="Our Solution" 
-             title="AI-Powered Skill Matching" 
-             subtitle="We removed the friction. The AI analyzes the candidate's core stack against the company's explicit requirements, creating a perfect symbiosis."
-          />
-
-          <div className="grid md:grid-cols-3 gap-8 mt-16">
-            <FeatureCard 
-              icon={<BrainCircuit className="w-8 h-8 text-blue-400" />}
-              title="Intelligent Scoring"
-              desc="Generative AI grades your exact proficiency against the role in real-time, providing immediate feedback."
-              delay={0.1}
-            />
-            <FeatureCard 
-              icon={<ShieldCheck className="w-8 h-8 text-emerald-400" />}
-              title="Agnostic Hiring"
-              desc="Names and backgrounds come second. Skill logic and exact fit come first, eliminating preliminary bias."
-              delay={0.2}
-            />
-            <FeatureCard 
-              icon={<Zap className="w-8 h-8 text-purple-400" />}
-              title="Automated Outreach"
-              desc="The AI generates personalized, perfect-fit cover letters based on exactly why you match the job."
-              delay={0.3}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* ─── CALL TO ACTION ─── */}
-      <section className="relative z-10 py-32 px-4 bg-gray-950 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-[800px] h-[800px] bg-gradient-to-tr from-blue-600/20 to-purple-600/20 rounded-full blur-[100px]" />
-        </div>
-        
-        <RevealCard delay={0.1}>
-          <div className="max-w-4xl mx-auto bg-gray-900/80 border border-gray-700/50 backdrop-blur-xl rounded-[3rem] p-12 md:p-20 text-center shadow-2xl relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
-            <h2 className="text-4xl md:text-5xl font-black mb-6 relative z-10 tracking-tight">
-              Ready to reshape your <br/> professional journey?
-            </h2>
-            <p className="text-xl text-gray-400 mb-10 max-w-2xl mx-auto relative z-10 font-medium">
-              Join thousands of professionals and forward-thinking companies already using JobCopilot.
-            </p>
-            <Link to="/login">
-              <button className="relative z-10 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-2xl font-bold transition-all shadow-[0_10px_40px_-10px_rgba(59,130,246,0.5)] flex items-center justify-center gap-2 group mx-auto text-lg hover:-translate-y-1">
-                Start Your Journey <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              </button>
-            </Link>
-          </div>
-        </RevealCard>
-      </section>
-      
       {/* ─── FOOTER ─── */}
-      <footer className="border-t border-gray-800 py-12 px-4 relative z-10 bg-gray-950 text-center text-gray-500 font-medium">
-        <p>© {new Date().getFullYear()} JobCopilot AI. Designed for a smarter world.</p>
+      <footer className="border-t border-slate-200 py-12 px-6 bg-slate-50 text-center">
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <BrainCircuit className="w-6 h-6 text-blue-600" />
+          <span className="text-xl font-black tracking-tight text-slate-900">Jobice.</span>
+        </div>
+        <p className="text-slate-500 font-medium text-sm">
+          Built to make recruiting intelligent, effortless, and fast.
+        </p>
       </footer>
 
     </div>
   );
-}
-
-// ─── REUSABLE COMPONENTS ─── //
-
-function SectionHeader({ badge, title, subtitle }) {
-  return (
-    <div className="text-center max-w-3xl mx-auto">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        className="inline-block px-4 py-1.5 rounded-full bg-gray-800/80 border border-gray-700 text-blue-400 font-bold text-xs uppercase tracking-widest mb-6"
-      >
-        {badge}
-      </motion.div>
-      <motion.h2 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ delay: 0.1 }}
-        className="text-4xl md:text-5xl font-black mb-6 tracking-tight"
-      >
-        {title}
-      </motion.h2>
-      <motion.p 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ delay: 0.2 }}
-        className="text-lg text-gray-400 leading-relaxed font-medium"
-      >
-        {subtitle}
-      </motion.p>
-    </div>
-  )
-}
-
-function RevealCard({ children, delay = 0 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 50 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
-      transition={{ duration: 0.8, delay, type: "spring", bounce: 0.3 }}
-      className="h-full"
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-function FeatureCard({ icon, title, desc, delay }) {
-  return (
-    <RevealCard delay={delay}>
-      <div className="bg-gray-900 border border-gray-800 rounded-3xl p-8 hover:border-gray-600 transition-colors h-full flex flex-col items-center text-center group">
-        <div className="w-16 h-16 rounded-2xl bg-gray-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
-          {icon}
-        </div>
-        <h3 className="text-xl font-bold text-white mb-3">{title}</h3>
-        <p className="text-gray-400 leading-relaxed font-medium">{desc}</p>
-      </div>
-    </RevealCard>
-  )
-}
-
-function XIcon() {
-  return (
-    <div className="bg-rose-500/10 p-1 rounded mt-0.5 shrink-0">
-      <XCircleIcon className="w-4 h-4 text-rose-400" />
-    </div>
-  )
-}
-
-function XCircleIcon(props) {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-      <path d="M18 6 6 18"/><path d="m6 6 12 12"/>
-    </svg>
-  )
 }

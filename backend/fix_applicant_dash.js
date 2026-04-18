@@ -1,5 +1,5 @@
 const fs = require('fs');
-const filePath = '/Users/sujalwarke/Desktop/PersonalOPS/ai-job-copilot/frontend/src/pages/ApplicantDashboard.jsx';
+const filePath = '/Users/sujalwarke/Desktop/PersonalOPS/Jobice/frontend/src/pages/ApplicantDashboard.jsx';
 let content = fs.readFileSync(filePath, 'utf8');
 
 // Make sure that Applicant Dashboard doesn't have the Resume Upload anywhere anymore

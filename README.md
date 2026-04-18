@@ -1,4 +1,4 @@
-# JobAgent 🤖💼
+# Jobice 🤖💼
 
 An intelligent, AI-powered recruitment platform designed to seamlessly connect applicants with their ideal roles by extracting meaning from skills and experience. It serves dual portals for both Job Seekers and Administrative hiring teams.
 

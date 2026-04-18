@@ -76,27 +76,27 @@ export default function JobDetails() {
     }
   };
 
-  if (loading) return <div className="text-center py-20 text-gray-400">Loading job details...</div>;
-  if (!job) return <div className="text-center py-20 text-gray-400">Job not found</div>;
+  if (loading) return <div className="text-center py-20 text-slate-500">Loading job details...</div>;
+  if (!job) return <div className="text-center py-20 text-slate-500">Job not found</div>;
 
   return (
     <div className="max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-500">
       <button 
         onClick={() => navigate(-1)} 
-        className="flex items-center gap-2 text-gray-400 hover:text-white mb-6 transition-colors"
+        className="flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-6 transition-colors"
       >
         <ArrowLeft className="w-4 h-4" /> Back
       </button>
 
-      <div className="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-2xl relative">
+      <div className="bg-slate-100 border border-slate-300 rounded-xl overflow-hidden shadow-2xl relative">
         {/* Header gradient bg */}
         <div className="h-32 bg-gradient-to-r from-blue-900/60 to-purple-900/60 relative">
-          <div className="absolute inset-0 bg-gray-900/40"></div>
+          <div className="absolute inset-0 bg-white/40"></div>
         </div>
         
         <div className="px-8 pb-8 relative -mt-16">
           <div className="flex justify-between items-end mb-6">
-            <div className="bg-gray-900 border-4 border-gray-800 rounded-xl p-4 inline-block">
+            <div className="bg-white border-4 border-slate-200 rounded-xl p-4 inline-block">
               <Building className="w-12 h-12 text-blue-400" />
             </div>
             
@@ -108,7 +108,7 @@ export default function JobDetails() {
               <button
                 onClick={handleGenerateCoverLetter}
                 disabled={isGenerating}
-                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white rounded-lg font-medium transition-all shadow-lg flex items-center gap-2 relative group overflow-hidden"
+                className="px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-slate-900 rounded-lg font-medium transition-all shadow-lg flex items-center gap-2 relative group overflow-hidden"
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform"></div>
                 <Wand2 className="w-5 h-5 relative z-10" /> 
@@ -117,9 +117,9 @@ export default function JobDetails() {
             )}
           </div>
 
-          <h1 className="text-3xl font-bold text-white mb-2">{job.title}</h1>
-          <div className="flex flex-wrap items-center gap-6 text-gray-400 mb-8 border-b border-gray-700 pb-8">
-            <span className="flex items-center gap-2 font-medium text-gray-300">
+          <h1 className="text-3xl font-bold text-slate-900 mb-2">{job.title}</h1>
+          <div className="flex flex-wrap items-center gap-6 text-slate-500 mb-8 border-b border-slate-300 pb-8">
+            <span className="flex items-center gap-2 font-medium text-slate-600">
               <Building className="w-5 h-5" /> {job.company}
             </span>
             <span className="flex items-center gap-2">
@@ -128,7 +128,7 @@ export default function JobDetails() {
             <span className="flex items-center gap-2 text-green-400">
               <DollarSign className="w-5 h-5" /> {job.salary}
             </span>
-            <span className="bg-gray-900 px-3 py-1 rounded-full text-xs border border-gray-700">
+            <span className="bg-white px-3 py-1 rounded-full text-xs border border-slate-300">
               Posted {new Date(job.createdAt).toLocaleDateString()}
             </span>
           </div>
@@ -142,17 +142,17 @@ export default function JobDetails() {
                  <Sparkles className="w-5 h-5" /> AI Match Analysis
                </h3>
                <div className="flex items-end gap-3 mb-3 relative z-10">
-                 <span className="text-4xl font-bold text-white">{job.matchScore}</span>
-                 <span className="text-gray-400 pb-1">matching skills found</span>
+                 <span className="text-4xl font-bold text-slate-900">{job.matchScore}</span>
+                 <span className="text-slate-500 pb-1">matching skills found</span>
                </div>
-               <p className="text-gray-300 relative z-10 leading-relaxed bg-gray-900/30 p-4 rounded-lg border border-gray-700">
+               <p className="text-slate-600 relative z-10 leading-relaxed bg-white/30 p-4 rounded-lg border border-slate-300">
                  {job.matchReason || "We've analyzed your profile and found strong alignment with this role based on your core skills."}
                </p>
             </div>
           )}
 
           <div className="mb-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Required Skills</h3>
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">Required Skills</h3>
             <div className="flex flex-wrap gap-2">
               {job.requiredSkills?.map(skill => {
                 const isMatch = user.skills?.map(s=>s.toLowerCase()).includes(skill.toLowerCase());
@@ -162,7 +162,7 @@ export default function JobDetails() {
                     className={`px-3 py-1.5 rounded-lg text-sm font-medium border ${
                       isMatch 
                         ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' 
-                        : 'bg-gray-900 text-gray-400 border-gray-700'
+                        : 'bg-white text-slate-500 border-slate-300'
                     }`}
                   >
                     {skill} {isMatch && '✓'}
@@ -173,8 +173,8 @@ export default function JobDetails() {
           </div>
 
           <div>
-            <h3 className="text-xl font-semibold text-white mb-4">Job Description</h3>
-            <div className="text-gray-300 leading-relaxed whitespace-pre-wrap bg-gray-900 rounded-xl p-6 border border-gray-700">
+            <h3 className="text-xl font-semibold text-slate-900 mb-4">Job Description</h3>
+            <div className="text-slate-600 leading-relaxed whitespace-pre-wrap bg-white rounded-xl p-6 border border-slate-300">
               {job.description}
             </div>
           </div>

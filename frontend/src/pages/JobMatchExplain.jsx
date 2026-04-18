@@ -50,14 +50,14 @@ export default function JobMatchExplain() {
         <h2 className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
           Generative AI is analyzing your fit...
         </h2>
-        <p className="text-gray-400 mt-2">Computing semantic skill overlap for {job?.title || 'this role'}.</p>
+        <p className="text-slate-500 mt-2">Computing semantic skill overlap for {job?.title || 'this role'}.</p>
       </div>
     );
   }
 
   if (!job || !analysis) {
     return (
-      <div className="text-center py-20 text-gray-400">Failed to load match analysis.</div>
+      <div className="text-center py-20 text-slate-500">Failed to load match analysis.</div>
     );
   }
 
@@ -68,16 +68,16 @@ export default function JobMatchExplain() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none"></div>
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <Link to="/applicant-dashboard" className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors group">
+      <Link to="/applicant-dashboard" className="inline-flex items-center text-slate-500 hover:text-slate-900 mb-8 transition-colors group">
         <ArrowLeft className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
         Back to Dashboard
       </Link>
 
-      <div className="flex items-center gap-3 mb-10 pb-6 border-b border-gray-800 relative z-10">
+      <div className="flex items-center gap-3 mb-10 pb-6 border-b border-slate-200 relative z-10">
         <BrainCircuit className="w-10 h-10 text-blue-400" />
         <div>
-          <h1 className="text-3xl font-black text-white tracking-tight">AI Fit Analysis</h1>
-          <p className="text-gray-400">Deep skill evaluation for <strong className="text-white">{job.title}</strong> at {job.company}</p>
+          <h1 className="text-3xl font-black text-slate-900 tracking-tight">AI Fit Analysis</h1>
+          <p className="text-slate-500">Deep skill evaluation for <strong className="text-slate-900">{job.title}</strong> at {job.company}</p>
         </div>
       </div>
 
@@ -85,11 +85,11 @@ export default function JobMatchExplain() {
         
         {/* Left Column: Score */}
         <div className="md:col-span-1 space-y-6">
-          <div className="bg-gray-900 border border-gray-800 rounded-3xl p-8 flex flex-col items-center justify-center shadow-2xl relative overflow-hidden group">
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 flex flex-col items-center justify-center shadow-2xl relative overflow-hidden group">
             <div className={`absolute inset-0 opacity-20 pointer-events-none ${analysis.score >= 80 ? 'bg-green-500' : analysis.score >= 60 ? 'bg-yellow-500' : 'bg-red-500'}`}></div>
-            <Target className="w-8 h-8 text-gray-500 mb-4" />
-            <div className="text-6xl font-black text-white mb-2 relative z-10">{analysis.score}<span className="text-3xl text-gray-500">/100</span></div>
-            <div className="text-sm font-bold uppercase tracking-wider text-gray-400">Match Confidence</div>
+            <Target className="w-8 h-8 text-slate-400 mb-4" />
+            <div className="text-6xl font-black text-slate-900 mb-2 relative z-10">{analysis.score}<span className="text-3xl text-slate-400">/100</span></div>
+            <div className="text-sm font-bold uppercase tracking-wider text-slate-500">Match Confidence</div>
             
             <div className={`mt-6 px-4 py-2 rounded-full border text-sm font-bold w-full text-center
               ${analysis.score >= 80 ? 'border-green-500/50 text-green-400 bg-green-500/10' : 
@@ -110,11 +110,11 @@ export default function JobMatchExplain() {
         {/* Right Column: Details */}
         <div className="md:col-span-2 space-y-6">
           
-          <div className="bg-gray-900 border border-gray-800 rounded-3xl p-8 shadow-xl">
-            <h3 className="text-xl font-bold flex items-center gap-2 mb-4 text-white">
+          <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-xl">
+            <h3 className="text-xl font-bold flex items-center gap-2 mb-4 text-slate-900">
                <TrendingUp className="w-6 h-6 text-blue-400" /> AI Executive Summary
             </h3>
-            <p className="text-gray-300 leading-relaxed font-medium text-lg">
+            <p className="text-slate-600 leading-relaxed font-medium text-lg">
               {analysis.reasoning}
             </p>
           </div>
@@ -126,7 +126,7 @@ export default function JobMatchExplain() {
               </h4>
               <ul className="space-y-3">
                 {analysis.strongMatches.map((skill, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300">
+                  <li key={i} className="flex items-center gap-2 text-slate-600">
                      <CheckCircle2 className="w-4 h-4 text-green-500" /> {skill}
                   </li>
                 ))}
@@ -139,7 +139,7 @@ export default function JobMatchExplain() {
               </h4>
               <ul className="space-y-3">
                 {analysis.weakMatches.map((skill, i) => (
-                  <li key={i} className="flex items-center gap-2 text-gray-300">
+                  <li key={i} className="flex items-center gap-2 text-slate-600">
                      <div className="w-1.5 h-1.5 rounded-full bg-red-500/50"></div> {skill}
                   </li>
                 ))}
